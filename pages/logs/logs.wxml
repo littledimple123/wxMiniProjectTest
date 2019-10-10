@@ -1,0 +1,4 @@
+<header title="日志" background="#fff"></header>
+<refresh-scroll id="refreshScroll" bindscrolltoupper="refresh">
+  <view class="item" slot="content" wx:for="{{list}}">{{item}}</view>
+</refresh-scroll>

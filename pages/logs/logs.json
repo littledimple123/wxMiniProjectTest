@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "日志",
+  "usingComponents": {
+    "refresh-scroll":"../components/downfresh/downfresh"
+  }
+}
