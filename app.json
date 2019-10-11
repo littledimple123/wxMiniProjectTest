@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/index/index", "pages/logs/logs","pages/orders/orders"],
+  "pages": ["pages/index/index", "pages/logs/logs","pages/orders/orders","pages/orders/ordersDetail/ordersDetail"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -9,20 +9,20 @@
   "tabBar": {
     "list": [
       {
-        "selectedIconPath": "",
-        "iconPath": "",
+        "selectedIconPath": "img/homeActive.png",
+        "iconPath": "img/home.png",
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "selectedIconPath": "",
-        "iconPath": "",
+        "selectedIconPath": "img/logActive.png",
+        "iconPath": "img/log .png",
         "pagePath": "pages/logs/logs",
         "text": "日志"
       },
       {
-        "selectedIconPath": "",
-        "iconPath": "",
+        "selectedIconPath": "img/orderActive.png",
+        "iconPath": "img/order.png",
         "pagePath": "pages/orders/orders",
         "text": "订单"
       }

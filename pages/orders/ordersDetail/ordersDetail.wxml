@@ -1,0 +1,15 @@
+<view>产品内容详情</view>
+<button type="primary" size="mini" bindtap="upload"> 上传图片 </button>
+<view bindtap='callPhone'>{{text}}</view>
+
+<view class='page_bg' wx:if='{{block}}' bindtap='hide_bg'/>
+<view class='btn_bg' wx:if='{{block}}'>
+  <view wx:for="{{phoneNumber}}" wx:key='index'>
+    <button class="sp_tit" id='{{index}}' bindtap='list_item'>拨打 {{item}} </button>
+  </view>
+</view>
+
+
+
+
+<button type="primary" size="mini" bindtap="scanCode"> 扫描二维码/条形码 </button>

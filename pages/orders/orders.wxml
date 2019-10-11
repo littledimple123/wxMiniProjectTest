@@ -5,12 +5,13 @@
 </view>
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
     <swiper-item>
-        <view>产品</view>
+        <view>产品内容</view>
+        <button type="primary" size="mini" bindtap="jump"> 详情 </button>
     </swiper-item>
     <swiper-item>
-        <view>金融</view>
+        <view>金融内容</view>
     </swiper-item>
     <swiper-item>
-        <view>理财</view>
+        <view>理财内容</view>
     </swiper-item>
 </swiper>
