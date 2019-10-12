@@ -1,6 +1,6 @@
 <view>产品内容详情</view>
 <button type="primary" size="mini" bindtap="upload"> 上传图片 </button>
-<block wx:for='{{tempFilePaths}}' wx:key='{{index}}'>
+<block wx:for='{{tempFilePaths}}' wx:key='index'>
   <image src="{{item}}" style="width:40px; height: 40px"/>
 </block>
 

@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/index/index", "pages/logs/logs","pages/orders/orders","pages/orders/ordersDetail/ordersDetail"],
+  "pages": ["pages/index/index", "pages/logs/logs","pages/orders/orders","pages/orders/ordersDetail/ordersDetail","pages/person/person"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -25,6 +25,12 @@
         "iconPath": "img/order.png",
         "pagePath": "pages/orders/orders",
         "text": "订单"
+      },
+      {
+        "selectedIconPath": "img/orderActive.png",
+        "iconPath": "img/order.png",
+        "pagePath": "pages/person/person",
+        "text": "我的"
       }
     ]
   },
