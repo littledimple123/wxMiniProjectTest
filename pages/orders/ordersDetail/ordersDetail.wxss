@@ -21,3 +21,11 @@
   margin-left: 25rpx;
   border-bottom: 1 solid sandybrown;
 }
+.bottomrel{
+  position:reletive;
+}
+.bottombtn{
+  position: fixed;
+  bottom:0;
+  width:100%;
+}

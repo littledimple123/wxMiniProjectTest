@@ -17,7 +17,7 @@ Page({
   },
   onReachBottom() {
     wx.showLoading({
-      title: 'onReachBottom'
+      title: '加载中。。。'
     });
     setTimeout(() => {
       wx.hideLoading();

@@ -8,7 +8,8 @@ import detail from '../../../api/orderRequest';
 Page({
   data: {
     text: '',
-    phoneNumber: []
+    phoneNumber: [],
+    tempFilePaths: []
   },
   onLoad: function() {
     this.setData({
@@ -26,22 +27,26 @@ Page({
     // })
   },
   upload: function() {
+    let that = this;
     wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
       success(res) {
-        console.log(res);
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        });
         const tempFilePaths = res.tempFilePaths;
+        that.setData({
+          tempFilePaths: tempFilePaths
+        });
+        // 上传完成后把文件上传到服务器
         wx.uploadFile({
-          url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
-          filePath: tempFilePaths[0],
-          name: 'file',
-          formData: {
-            user: 'test'
-          },
-          success(res) {
-            const data = res.data;
-            console.log(data);
-            //do something
-          }
+          url: '',
+          filePath:'',
         });
       }
     });
@@ -54,7 +59,7 @@ Page({
     // console.log(phoneList);
     for (let item of phoneList) {
       if (item !== '') {
-        console.log(item);
+        // console.log(item);
         phoneArr.push(item);
       }
     }
@@ -84,7 +89,7 @@ Page({
     });
   },
   list_item(e) {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     var list_item_phone = this.data.phoneNumber[e.target.id];
     wx.makePhoneCall({
       phoneNumber: list_item_phone
