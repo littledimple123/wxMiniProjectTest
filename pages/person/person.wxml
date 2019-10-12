@@ -2,3 +2,4 @@
   <view bindtap='toggleList' id='{{index}}'>{{item.title}}</view>
   <view wx:if="{{selectedFlag[index]}}">{{item.content}}</view>
 </block>
+
