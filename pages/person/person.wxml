@@ -1,5 +1,4 @@
 <block wx:for="{{lists}}" wx:key="index">
   <view bindtap='toggleList' id='{{index}}'>{{item.title}}</view>
-  <view wx:if="{{selectedFlag[index]}}">{{item.content}}</view>
+  <view hidden="{{!selectedFlag[index]}}">{{item.content}}</view>
 </block>
-

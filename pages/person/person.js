@@ -18,13 +18,19 @@ Page({
     }
   },
   toggleList(e) {
-    console.log(e.target.id);
-    // console.log(this.data.lists.length)
-    if (this.data.selectedFlag[e.target.id] === false) {
-      this.data.selectedFlag[e.target.id] = true;
-    } else if (this.data.selectedFlag[e.target.id] === true) {
-      this.data.selectedFlag[e.target.id] = false;
+    // console.log(e.target.id);
+    let index = Number(e.target.id);
+    // console.log(index);
+    if (this.data.selectedFlag[index] === false) {
+      this.data.selectedFlag[index] = true;
+      // console.log(this.data.selectedFlag[index]);
+    } else if (this.data.selectedFlag[index] === true) {
+      this.data.selectedFlag[index] = false;
+      // console.log(this.data.selectedFlag[index]);
     }
-    console.log(this.data.selectedFlag[e.target.id]);
+    this.setData({
+      selectedFlag: this.data.selectedFlag
+    });
+    // console.log(this.data.selectedFlag);
   }
 });
