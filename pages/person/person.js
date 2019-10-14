@@ -16,6 +16,11 @@ Page({
     for (let i = 0; i < this.data.lists.length; i++) {
       this.data.selectedFlag.push(false);
     }
+    wx.getUserInfo({
+      success: function(res) {
+        console.log(res.userInfo);
+      }
+    });
   },
   toggleList(e) {
     // console.log(e.target.id);

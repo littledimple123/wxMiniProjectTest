@@ -10,6 +10,13 @@
     </swiper-item>
     <swiper-item>
         <view>金融内容</view>
+        <view>************************************************************</view>
+        <view class="section__title">普通选择器</view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range-key="{{'key'}}" range="{{array}}">
+            <view class="picker">
+            当前选择：{{array[index].key }}
+            </view>
+        </picker>
     </swiper-item>
     <swiper-item>
         <view>理财内容</view>

@@ -2,7 +2,18 @@ Page({
   data: {
     winWidth: 0,
     winHeight: 0,
-    currentTab: 0
+    currentTab: 0,
+    array: [
+      {
+        id: 0,
+        key: '北京'
+      },
+      {
+        id: 1,
+        key: '天津'
+      }
+    ],
+    index: 0
   },
   onLoad: function() {
     var that = this;
@@ -38,6 +49,12 @@ Page({
     // console.log(e)
     wx.navigateTo({
       url: './ordersDetail/ordersDetail'
+    });
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e);
+    this.setData({
+      index: e.detail.value
     });
   }
 });
