@@ -4,7 +4,7 @@
   <image src="{{item}}" style="width:40px; height: 40px"/>
 </block>
 
-<view>************************************************************************</view>
+<view>*********************************************************************</view>
 <view bindtap='callPhone'>{{text}}</view>
 <view class='page_bg' wx:if='{{block}}' bindtap='hide_bg'/>
 <view class='btn_bg' wx:if='{{block}}'>
@@ -12,8 +12,15 @@
     <button class="sp_tit" id='{{index}}' bindtap='list_item'>拨打 {{item}} </button>
   </view>
 </view>
-<view>************************************************************************</view>
+<view>********************************************************************</view>
 <button type="primary" size="mini" bindtap="scanCode"> 扫描二维码/条形码 </button>
+<view>********************************************************************</view>
+<view class ='container'>
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
+  <view class="content">{{item.content}}</view>
+  <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+</view>
+</view>
 <block class='bottomrel'>
   <button type="primary" class='bottombtn'>立即下单</button>
 </block>

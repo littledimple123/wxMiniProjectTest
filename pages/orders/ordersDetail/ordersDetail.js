@@ -9,24 +9,27 @@ Page({
   data: {
     text: '',
     phoneNumber: [],
-    tempFilePaths: []
+    tempFilePaths: [],
+    items: [],
+    startX: 0, //开始坐标
+    startY: 0
   },
   onLoad: function() {
+    for (var i = 0; i < 10; i++) {
+      this.data.items.push({
+        content:
+          i +
+          ' 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦',
+
+        isTouchMove: false //默认隐藏删除
+      });
+    }
     this.setData({
-      text: 'test内容022-11111111,test内容13100002222,test内容400-88888888'
+      text: 'test内容022-11111111,test内容13100002222,test内容400-88888888',
+      items: this.data.items
     });
-    // const obj = {
-    //   organizationId: '1177492780642078720'
-    // };
-    // console.log('1');
-    // console.log(detail)
-    // detail(obj).then(res => {
-    //   console.log(res)
-    // }).catch(err => {
-    //   console.log(err)
-    // })
   },
-  upload: function() {
+  upload() {
     let that = this;
     wx.chooseImage({
       count: 9,
@@ -46,7 +49,7 @@ Page({
         // 上传完成后把文件上传到服务器
         wx.uploadFile({
           url: '',
-          filePath:'',
+          filePath: ''
         });
       }
     });
@@ -113,6 +116,65 @@ Page({
           duration: 1000
         });
       }
+    });
+  },
+  //开始触摸时 重置所有删除
+  touchstart(e) {
+    // console.log(e);
+    this.data.items.forEach((v, i) => {
+      if (v.isTouchMove) {
+        v.isTouchMove = false;
+      }
+    });
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      items: this.data.items
+    });
+  },
+  // 滑动事件
+  touchmove(e) {
+    // console.log(e)
+    // debugger;
+    var index = e.currentTarget.dataset.index, //当前索引
+      startX = this.data.startX, //开始X坐标
+      startY = this.data.startY, //开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
+      angle = this.angle(
+        { X: startX, Y: startY },
+        { X: touchMoveX, Y: touchMoveY }
+      );
+
+    this.data.items.forEach((v, i) => {
+      v.isTouchMove = false;
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i === index) {
+        if (touchMoveX > startX) {
+          //右滑
+          v.isTouchMove = false;
+        } else {
+          //左滑
+          v.isTouchMove = true;
+        }
+      }
+    });
+    this.setData({
+      items: this.data.items
+    });
+  },
+  angle(start, end) {
+    // debugger;
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y;
+    //返回角度 /Math.atan()返回数字的反正切值
+    return (360 * Math.atan(_Y / _X)) / (2 * Math.PI);
+  },
+  del(e) {
+    this.data.items.splice(e.currentTarget.dataset.index, 1);
+    this.setData({
+      items: this.data.items
     });
   }
 });

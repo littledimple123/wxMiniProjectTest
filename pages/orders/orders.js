@@ -13,7 +13,13 @@ Page({
         key: '天津'
       }
     ],
-    index: 0
+    index: 0,
+    multiArray: [
+      [2018, 2019, 2020, 2021],
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    ],
+    multiIndex: [0, 0],
+    date: ''
   },
   onLoad: function() {
     var that = this;
@@ -27,6 +33,17 @@ Page({
           winHeight: res.windowHeight
         });
       }
+    });
+    var data = new Date();
+    var Y = data.getFullYear();
+    var M =
+      data.getMonth() + 1 < 10
+        ? '0' + (data.getMonth() + 1)
+        : data.getMonth() + 1;
+
+    var D = data.getDate() < 10 ? '0' + data.getDate() : data.getDate();
+    this.setData({
+      date:Y+'-'+M+'-'+D
     });
   },
   //  tab切换逻辑
@@ -51,10 +68,26 @@ Page({
       url: './ordersDetail/ordersDetail'
     });
   },
+  // 单列选择器
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e);
     this.setData({
       index: e.detail.value
+    });
+  },
+  // 多列选择器
+  // select改变
+  bindMultiPickerChange: function(e) {
+    // console.log(e);
+    this.setData({
+      multiIndex: e.detail.value
+    });
+  },
+  // 日期
+  bindDateChange: function(e) {
+    // console.log(e);
+    this.setData({
+      date: e.detail.value
     });
   }
 });

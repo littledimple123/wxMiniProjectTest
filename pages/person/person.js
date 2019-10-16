@@ -18,7 +18,7 @@ Page({
     }
     wx.getUserInfo({
       success: function(res) {
-        console.log(res.userInfo);
+        // console.log(res.userInfo);
       }
     });
   },

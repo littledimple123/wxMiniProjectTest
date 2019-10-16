@@ -17,6 +17,21 @@
             当前选择：{{array[index].key }}
             </view>
         </picker>
+        <view>************************************************************</view>
+        <view class="section__title">多列选择器</view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker">
+            当前选择：{{multiArray[0][multiIndex[0]]}}年{{multiArray[1][multiIndex[1]]}}月
+            </view>
+        </picker>
+        <view>**************************************************************</view>
+        <view class="section__title">日期选择器</view>
+        <picker mode="date" value="{{date}}" start="1900-01" end="2999-12-31" bindchange="bindDateChange">
+            <view class="picker">
+            当前选择: {{date}}
+            </view>
+        </picker>
+
     </swiper-item>
     <swiper-item>
         <view>理财内容</view>
