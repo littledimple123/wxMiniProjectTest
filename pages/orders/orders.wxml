@@ -35,5 +35,16 @@
     </swiper-item>
     <swiper-item>
         <view>理财内容</view>
+        <view>************************************************************</view>
+        <view class="body-view">
+            <switch checked="{{switchChecked}}" bindchange="switchChange"/>
+        </view>
+        <view>*********************************************************</view>
+        <view class="section__title">省市区三级选择器</view>
+        <picker mode="region " custom-item="{{customItem}}" bindchange="bindRegionChange" value="{{region}}">
+            <view class="picker">
+            当前选择: {{region}}
+            </view>
+        </picker>
     </swiper-item>
 </swiper>

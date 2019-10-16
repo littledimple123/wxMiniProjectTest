@@ -19,7 +19,8 @@ Page({
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     ],
     multiIndex: [0, 0],
-    date: ''
+    date: '',
+    switchChecked: false
   },
   onLoad: function() {
     var that = this;
@@ -43,7 +44,7 @@ Page({
 
     var D = data.getDate() < 10 ? '0' + data.getDate() : data.getDate();
     this.setData({
-      date:Y+'-'+M+'-'+D
+      date: Y + '-' + M + '-' + D
     });
   },
   //  tab切换逻辑
@@ -89,5 +90,11 @@ Page({
     this.setData({
       date: e.detail.value
     });
+  },
+  switchChange(e) {
+    console.log(e);
+  },
+  bindRegionChange (e) {
+    console.log(e)
   }
 });
