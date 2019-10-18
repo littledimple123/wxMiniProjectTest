@@ -29,6 +29,9 @@
   bottom:0;
   width:100%;
 }
+.ovh{
+  overflow:hidden;
+}
 .container {
   min-height: 100%;
   padding: 20rpx 0rpx;

@@ -21,6 +21,7 @@ Page({
     multiIndex: [0, 0],
     date: '',
     switchChecked: false
+
   },
   onLoad: function() {
     var that = this;
@@ -46,6 +47,7 @@ Page({
     this.setData({
       date: Y + '-' + M + '-' + D
     });
+
   },
   //  tab切换逻辑
   swichNav: function(e) {
@@ -94,7 +96,9 @@ Page({
   switchChange(e) {
     console.log(e);
   },
-  bindRegionChange (e) {
-    console.log(e)
+
+  //转发
+  onShareAppMessage () {
+    
   }
 });

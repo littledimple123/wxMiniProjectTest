@@ -40,11 +40,14 @@
             <switch checked="{{switchChecked}}" bindchange="switchChange"/>
         </view>
         <view>*********************************************************</view>
-        <view class="section__title">省市区三级选择器</view>
-        <picker mode="region " custom-item="{{customItem}}" bindchange="bindRegionChange" value="{{region}}">
-            <view class="picker">
-            当前选择: {{region}}
+        <view class="container">
+            <view class="userinfo">
+                <button open-type="share">分享好友</button>
             </view>
-        </picker>
+            <view class="usermotto">
+                <text class="user-motto">{{motto}}</text>
+            </view>
+        </view>
+
     </swiper-item>
 </swiper>
