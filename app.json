@@ -2,11 +2,14 @@
   "pages": ["pages/index/index", "pages/logs/logs","pages/orders/orders","pages/orders/ordersDetail/ordersDetail","pages/person/person"],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "首页",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#1ccab5",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "首页"    
   },
   "tabBar": {
+    "color": "#000",
+    "selectedColor":"#1ccab5",
+    "borderStyle": "white",
     "list": [
       {
         "selectedIconPath": "img/homeActive.png",
