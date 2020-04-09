@@ -1,3 +1,4 @@
+var dateTimePicker = require('../../utils/dateTimePicker.js');
 Page({
   data: {
     winWidth: 0,
@@ -6,35 +7,38 @@ Page({
     array: [
       {
         id: 0,
-        key: '北京'
+        key: '北京',
       },
       {
         id: 1,
-        key: '天津'
-      }
+        key: '天津',
+      },
     ],
     index: 0,
     multiArray: [
       [2018, 2019, 2020, 2021],
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     ],
     multiIndex: [0, 0],
     date: '',
-    switchChecked: false
-
+    switchChecked: false,
+    startYear: 1970,
+    endYear: 2100,
+    dateTime1: null, // 当前年，月，日，时，分，秒  在dateTimeArray1中的下标
+    dateTimeArray1: null,
   },
-  onLoad: function() {
+  onLoad: function () {
     var that = this;
     /**
      * 获取当前设备的宽高
      */
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
-          winHeight: res.windowHeight
+          winHeight: res.windowHeight,
         });
-      }
+      },
     });
     var data = new Date();
     var Y = data.getFullYear();
@@ -45,60 +49,77 @@ Page({
 
     var D = data.getDate() < 10 ? '0' + data.getDate() : data.getDate();
     this.setData({
-      date: Y + '-' + M + '-' + D
+      date: Y + '-' + M + '-' + D,
     });
+    // 下拉框中获取完整的年月日 时分秒，以及默认显示的数组
+    var obj1 = dateTimePicker.dateTimePicker(
+      this.data.startYear,
+      this.data.endYear
+    );
+    // 精确到分的处理，将数组的秒去掉
+    var lastArray = obj1.dateTimeArray.pop();
+    var lastTime = obj1.dateTime.pop();
 
+    this.setData({
+      dateTimeArray1: obj1.dateTimeArray,
+      dateTime1: obj1.dateTime,
+    });
   },
   //  tab切换逻辑
-  swichNav: function(e) {
+  swichNav: function (e) {
     // console.log(e)
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
       that.setData({
-        currentTab: e.target.dataset.current
+        currentTab: e.target.dataset.current,
       });
     }
   },
-  bindChange: function(e) {
+  bindChange: function (e) {
     var that = this;
     that.setData({ currentTab: e.detail.current });
   },
-  jump: function(e) {
+  jump: function (e) {
     // console.log(e)
     wx.navigateTo({
-      url: './ordersDetail/ordersDetail'
+      url: './ordersDetail/ordersDetail',
     });
   },
   // 单列选择器
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e);
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
     });
   },
   // 多列选择器
   // select改变
-  bindMultiPickerChange: function(e) {
+  bindMultiPickerChange: function (e) {
     // console.log(e);
     this.setData({
-      multiIndex: e.detail.value
+      multiIndex: e.detail.value,
     });
   },
   // 日期
-  bindDateChange: function(e) {
+  bindDateChange: function (e) {
     // console.log(e);
     this.setData({
-      date: e.detail.value
+      date: e.detail.value,
     });
   },
   switchChange(e) {
     console.log(e);
   },
+  // 日期时间选择器(精确到分) 下拉弹框的确定按钮
+  changeDateTime1 (e) {
+    console.log('日期选择', e);
+    this.setData({
+      dateTime1: e.detail.value
+    });
+  },
 
   //转发
-  onShareAppMessage () {
-    
-  }
+  onShareAppMessage() {},
 });
