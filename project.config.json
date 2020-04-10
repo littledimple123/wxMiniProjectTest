@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wx5b64f7c55c89943a",
+	"appid": "wx41851c4179667b69",
 	"projectname": "miniprogram-1",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -53,14 +53,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/orders/orders",
-					"pathName": "pages/orders/orders",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

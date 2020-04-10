@@ -119,7 +119,31 @@ Page({
       dateTime1: e.detail.value
     });
   },
+  dingwei () {
 
+    // wx.chooseLocation({
+    //   success: (lb) => {
+    //     console.log('lb',lb)
+    //     // wx.request({
+    //     //   url: `http://api.map.baidu.com/reverse_geocoding/v3/?ak=rc4xMBXorGqKyT0vRbjr9nnUFGOd37H1&location${lb.latitude},${lb.longitude}&output=json&coordtype=wgs84ll`,
+    //     //   data: {},
+    //     //   header: {
+    //     //     'Content-Type': 'application/json',
+    //     //   },
+    //     //   success: (res) => {
+    //     //     console.log(res);
+    //     //   },
+    //     //   fail: (err) => {
+    //     //     console.log(err);
+    //     //   },
+    //     // });
+    //   }
+    // })
+
+    wx.navigateTo({
+      url: '../map/map',
+    });
+  },
   //转发
   onShareAppMessage() {},
 });

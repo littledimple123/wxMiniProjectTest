@@ -53,13 +53,14 @@ function getNewDateArry() {
 function dateTimePicker(startYear, endYear, date) {
   // 返回默认显示的数组和联动数组的声明
   var dateTime = [],
-    dateTimeArray = [[], [], [], [], [], []];   
+    dateTimeArray = [[], [], [], [], [], []];
   var start = startYear || 1978;
   var end = endYear || 2100;
   // 默认开始显示数据
   var defaultDate = date
     ? [...date.split(' ')[0].split('-'), ...date.split(' ')[1].split(':')]
     : getNewDateArry();
+  // console.log("defaultDate", defaultDate)
   // 处理联动列表数据
   /*年月日 时分秒*/
   dateTimeArray[0] = getLoopArray(start, end);
@@ -72,8 +73,8 @@ function dateTimePicker(startYear, endYear, date) {
   dateTimeArray.forEach((current, index) => {
     dateTime.push(current.indexOf(defaultDate[index]));
   });
-  console.log('dateTimeArray', dateTimeArray);
-  console.log('dateTime', dateTime);
+  // console.log('dateTimeArray', dateTimeArray);
+  // console.log('dateTime', dateTime);
   return {
     dateTimeArray: dateTimeArray,
     dateTime: dateTime,

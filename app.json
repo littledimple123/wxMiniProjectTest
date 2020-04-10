@@ -5,8 +5,8 @@
     "pages/orders/orders",
     "pages/orders/ordersDetail/ordersDetail",
     "pages/person/person",
-    "components/calendar/calendar"
-    
+    "components/calendar/calendar",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
