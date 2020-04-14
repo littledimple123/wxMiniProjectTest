@@ -5,9 +5,14 @@
     "pages/orders/orders",
     "pages/orders/ordersDetail/ordersDetail",
     "pages/person/person",
-    "components/calendar/calendar",
-    "pages/map/map"
+    "components/calendar/calendar"
+    
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "地图选点需获取您的实时位置"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1ccab5",
