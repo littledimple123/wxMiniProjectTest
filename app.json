@@ -6,7 +6,6 @@
     "pages/orders/ordersDetail/ordersDetail",
     "pages/person/person",
     "components/calendar/calendar"
-    
   ],
   "permission": {
     "scope.userLocation": {
@@ -50,5 +49,6 @@
       }
     ]
   },
+
   "sitemapLocation": "sitemap.json"
 }
